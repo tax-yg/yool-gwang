@@ -547,3 +547,18 @@ footer p { margin-bottom: 5px; }
     grid-template-columns: 1fr;
   }
 }
+/* 상세페이지 → 칼럼 연결 박스 */
+.detail-column-link {
+  margin: 48px auto 0;
+  padding: 32px 24px;
+  background: var(--light);
+  border-radius: 12px;
+  text-align: center;
+}
+.detail-column-link h2 {
+  margin-top: 0;
+}
+.detail-column-link p {
+  margin-bottom: 20px;
+  color: #444;
+}
