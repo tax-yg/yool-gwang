@@ -1,3 +1,4 @@
 {
-  "layout": "column.njk"
+  "layout": "column.njk",
+  "tags": "column"
 }

@@ -1,0 +1,87 @@
+---
+layout: ""
+permalink: "/tax-column/"
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>세무 칼럼 | 율광 세무회계 - 서초구 재산 전문 세무사</title>
+  <meta name="description" content="율광 세무회계 박준우 세무사가 양도소득세, 상속세, 증여세, 사업자 세무를 실무 사례로 정리한 세무 칼럼 모음입니다." />
+  <link rel="canonical" href="https://yool-gwang.com/tax-column/" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "율광 세무회계 세무 칼럼",
+    "description": "양도소득세, 상속세, 증여세, 사업자 세무 칼럼 모음",
+    "url": "https://yool-gwang.com/tax-column/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "율광 세무회계",
+      "url": "https://yool-gwang.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="column-header">
+    <a href="/" class="column-logo">율광 세무회계</a>
+    <nav class="column-nav">
+      <a href="/">홈</a>
+      <a href="/tax-column/">세무 칼럼</a>
+    </nav>
+  </header>
+
+  <main class="column-main">
+    <h1 class="column-title">세무 칼럼</h1>
+    <p class="column-hub-desc">관심 있는 세목을 선택하면 관련 칼럼을 모아 보실 수 있습니다.</p>
+
+    <div class="column-cat-grid">
+      {%- for cat in categories %}
+      <a href="/tax-column/{{ cat.slug }}/" class="column-cat-card">
+        <span class="column-cat-name">{{ cat.name }}</span>
+        <span class="column-cat-count">
+          {%- set cnt = 0 %}
+          {%- for post in collections.column %}
+            {%- if post.data.category == cat.slug %}{% set cnt = cnt + 1 %}{% endif %}
+          {%- endfor %}
+          {{ cnt }}개 칼럼
+        </span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    <section class="column-recent">
+      <h2>최근 칼럼</h2>
+      <ul class="column-hub-list">
+        {%- for post in collections.column | reverse | limit(10) %}
+        <li class="column-hub-item">
+          <a href="{{ post.url }}">
+            <span class="column-hub-title">{{ post.data.title }}</span>
+          </a>
+          <p class="column-hub-summary">{{ post.data.description }}</p>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <div class="column-cta">
+      <p>세무 상담이 필요하신가요?</p>
+      <div class="column-cta-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeD10N-yh3TcPQUV8oW6neJ4tMDyE8oBrq7dmqhmmKeT1N7Ww/viewform" target="_blank" rel="noopener" class="btn">상담 예약 신청하기</a>
+        <a href="tel:02-2088-5906" class="btn btn-outline-dark">02-2088-5906</a>
+        <a href="http://pf.kakao.com/_blMan/chat" target="_blank" rel="noopener" class="btn-kakao">카카오톡 상담</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="column-footer">
+    <p>율광 세무회계 · 서울 서초구 방배로27길 9, 2층 202호 · 02-2088-5906</p>
+    <p>&copy; 2026 율광 세무회계</p>
+  </footer>
+</body>
+</html>

@@ -450,3 +450,100 @@ footer p { margin-bottom: 5px; }
   color: var(--accent);
   font-weight: 800;
 }
+/* ===== 세무 칼럼 메인/허브 공통 ===== */
+.column-hub-desc {
+  font-size: 15px;
+  color: #666;
+  margin: 8px 0 32px;
+}
+
+/* 세목 카드 그리드 (칼럼 메인) */
+.column-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.column-cat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 22px;
+  background: var(--light);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.column-cat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(31, 78, 121, 0.12);
+}
+.column-cat-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--main);
+}
+.column-cat-count {
+  font-size: 13px;
+  color: var(--point);
+  font-weight: 600;
+}
+
+/* 글 목록 (허브 + 메인 최근글) */
+.column-recent h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--main);
+  padding-bottom: 12px;
+  margin: 40px 0 20px;
+  border-bottom: 2px solid var(--light);
+}
+.column-hub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.column-hub-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+.column-hub-item:last-child {
+  border-bottom: none;
+}
+.column-hub-item > a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+.column-hub-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--main);
+  line-height: 1.5;
+}
+.column-hub-item > a:hover .column-hub-title {
+  color: var(--point);
+}
+.column-hub-sub {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--point);
+  background: var(--light);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.column-hub-summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #777;
+  margin: 8px 0 0;
+}
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+  .column-cat-grid {
+    grid-template-columns: 1fr;
+  }
+}
