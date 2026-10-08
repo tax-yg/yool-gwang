@@ -5,3 +5,57 @@
 
 [build.environment]
   NODE_VERSION = "20"
+[build]
+  command = "npm install && npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/capital-gains-tax.html"
+  to = "/capital-gains-tax/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/inheritance-tax.html"
+  to = "/inheritance-tax/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gift-tax.html"
+  to = "/gift-tax/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tax-consulting.html"
+  to = "/tax-consulting/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/plan-for-raising-funds.html"
+  to = "/plan-for-raising-funds/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-keeping.html"
+  to = "/book-keeping/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/claim-for-reassessment.html"
+  to = "/claim-for-reassessment/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tax-investigation.html"
+  to = "/tax-investigation/"
+  status = 301
+  force = true
