@@ -1,9 +1,12 @@
 ---
-title: "일시적 2주택, 언제 팔아야 비과세 받을까"
-category: "capital-gains-tax"
-subcategory: "1세대 1주택"
-description: "일시적 2주택자가 양도소득세 비과세를 받기 위한 종전주택 처분 기한과 매도 시점 설계 방법을 사례로 정리했습니다."
+title: 일시적 2주택, 언제 팔아야 비과세 받을까
+category: capital-gains-tax
+subcategory: 1세대 1주택
+description: 일시적 2주택자가 양도소득세 비과세를 받기 위한 종전주택 처분 기한과 매도 시점 설계 방법을 사례로 정리했습니다.
 date: 2026-10-08
+faq:
+  - question: test1
+    answer: test2
 ---
 
 ## 일시적 2주택 비과세의 핵심
