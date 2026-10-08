@@ -1,4 +1,3 @@
 {
-  "layout": "column.njk",
-  "permalink": "/tax-column/{{ page.fileSlug }}/index.html"
+  "layout": "column.njk"
 }

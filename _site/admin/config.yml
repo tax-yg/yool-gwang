@@ -12,8 +12,10 @@ collections:
     create: true
     extension: "md"
     format: "frontmatter"
-    slug: "{{category}}/{{fields.subcategory}}/{{slug}}"
-    path: "{{category}}/{{fields.subcategory}}/{{slug}}/index"
+    slug: "{{category}}/{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}"
+    path: "{{category}}/{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}/index"
+
+
 
     fields:
       - { label: "제목", name: "title", widget: "string" }

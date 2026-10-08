@@ -15,15 +15,21 @@
     
   
 
-  <!-- Article 스키마 (이 글의 세목 하나만 깨끗하게 들어감) -->
+  <!-- ① Article 스키마 (강화판: 언어·키워드·수정일 추가) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "일시적 2주택, 언제 팔아야 비과세 받을까",
     "description": "일시적 2주택자가 양도소득세 비과세를 받기 위한 종전주택 처분 기한과 매도 시점 설계 방법을 사례로 정리했습니다.",
-    "about": "양도소득세",
+    "inLanguage": "ko-KR",
+    "about": {
+      "@type": "Thing",
+      "name": "양도소득세"
+    },
+    "keywords": "양도소득세, 1세대 1주택",
     "datePublished": "Thu Oct 08 2026 09:00:00 GMT+0900 (한국 표준시)",
+    "dateModified": "Thu Oct 08 2026 09:00:00 GMT+0900 (한국 표준시)",
     "author": {
       "@type": "Person",
       "name": "박준우 세무사"
@@ -37,6 +43,62 @@
     "mainEntityOfPage": "https://yool-gwang.com/tax-column/test/"
   }
   </script>
+
+  <!-- ② BreadcrumbList 스키마 (세무칼럼 > 세목 > 글제목 경로) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "세무 칼럼",
+        "item": "https://yool-gwang.com/tax-column/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "양도소득세",
+        "item": "https://yool-gwang.com/capital-gains-tax.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "일시적 2주택, 언제 팔아야 비과세 받을까",
+        "item": "https://yool-gwang.com/tax-column/test/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ③ FAQPage 스키마 (FAQ를 입력한 글에만 자동 생성) -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "일시적 2주택은 언제까지 팔아야 비과세인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "신규 주택 취득일로부터 3년 이내에 종전 주택을 팔면 양도소득세 비과세를 받을 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "종전 주택을 꼭 먼저 사야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "종전 주택 취득 후 1년이 지나 신규 주택을 취득해야 일시적 2주택 비과세 요건을 충족합니다."
+        }
+      }
+    ]
+  }
+  </script>
+  
 </head>
 
 <body>
@@ -55,8 +117,7 @@
     <p class="column-category">양도소득세 · 1세대 1주택</p>
 
     <h1 class="column-title">일시적 2주택, 언제 팔아야 비과세 받을까</h1>
-        <p class="column-date">2026년 10월 8일</p>
-
+    <p class="column-date">2026년 10월 8일</p>
 
     <!-- 본문 (admin에서 쓴 Markdown이 여기로 변환되어 들어감) -->
     <article class="column-body">
@@ -66,7 +127,22 @@
 
     </article>
 
-      <!-- 하단 상담 안내 (기존 홈페이지와 동일한 버튼 구성) -->
+    <!-- FAQ 섹션 (사람 눈에도 보이게 본문 아래 표시) -->
+    
+    <section class="column-faq">
+      <h2>자주 묻는 질문</h2>
+      <div class="column-faq-item">
+        <h3 class="column-faq-q">일시적 2주택은 언제까지 팔아야 비과세인가요?</h3>
+        <p class="column-faq-a">신규 주택 취득일로부터 3년 이내에 종전 주택을 팔면 양도소득세 비과세를 받을 수 있습니다.</p>
+      </div>
+      <div class="column-faq-item">
+        <h3 class="column-faq-q">종전 주택을 꼭 먼저 사야 하나요?</h3>
+        <p class="column-faq-a">종전 주택 취득 후 1년이 지나 신규 주택을 취득해야 일시적 2주택 비과세 요건을 충족합니다.</p>
+      </div>
+    </section>
+    
+
+    <!-- 하단 상담 안내 (기존 홈페이지와 동일한 버튼 구성) -->
     <div class="column-cta">
       <p>양도소득세 관련 상담이 필요하신가요?</p>
       <div class="column-cta-buttons">

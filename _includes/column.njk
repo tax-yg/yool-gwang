@@ -23,15 +23,21 @@
     {% set semok = "세무" %}{% set semokUrl = "/" %}
   {% endif %}
 
-  <!-- Article 스키마 (이 글의 세목 하나만 깨끗하게 들어감) -->
+  <!-- ① Article 스키마 (강화판: 언어·키워드·수정일 추가) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "{{ title }}",
-    "description": "{{ description }}",
-    "about": "{{ semok }}",
+    "headline": {{ title | dump | safe }},
+    "description": {{ description | dump | safe }},
+    "inLanguage": "ko-KR",
+    "about": {
+      "@type": "Thing",
+      "name": "{{ semok }}"
+    },
+    "keywords": "{{ semok }}{% if subcategory %}, {{ subcategory }}{% endif %}",
     "datePublished": "{{ date }}",
+    "dateModified": "{{ date }}",
     "author": {
       "@type": "Person",
       "name": "박준우 세무사"
@@ -45,6 +51,56 @@
     "mainEntityOfPage": "https://yool-gwang.com{{ page.url }}"
   }
   </script>
+
+  <!-- ② BreadcrumbList 스키마 (세무칼럼 > 세목 > 글제목 경로) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "세무 칼럼",
+        "item": "https://yool-gwang.com/tax-column/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ semok }}",
+        "item": "https://yool-gwang.com{{ semokUrl }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ title | dump | safe }},
+        "item": "https://yool-gwang.com{{ page.url }}"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ③ FAQPage 스키마 (FAQ를 입력한 글에만 자동 생성) -->
+  {% if faq and faq.length > 0 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for item in faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.question | dump | safe }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ item.answer | dump | safe }}
+        }
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
 </head>
 
 <body>
@@ -63,15 +119,27 @@
     <p class="column-category">{{ semok }}{% if subcategory %} · {{ subcategory }}{% endif %}</p>
 
     <h1 class="column-title">{{ title }}</h1>
-        <p class="column-date">{{ date | krDate }}</p>
-
+    <p class="column-date">{{ date | krDate }}</p>
 
     <!-- 본문 (admin에서 쓴 Markdown이 여기로 변환되어 들어감) -->
     <article class="column-body">
       {{ content | safe }}
     </article>
 
-      <!-- 하단 상담 안내 (기존 홈페이지와 동일한 버튼 구성) -->
+    <!-- FAQ 섹션 (사람 눈에도 보이게 본문 아래 표시) -->
+    {% if faq and faq.length > 0 %}
+    <section class="column-faq">
+      <h2>자주 묻는 질문</h2>
+      {%- for item in faq %}
+      <div class="column-faq-item">
+        <h3 class="column-faq-q">{{ item.question }}</h3>
+        <p class="column-faq-a">{{ item.answer }}</p>
+      </div>
+      {%- endfor %}
+    </section>
+    {% endif %}
+
+    <!-- 하단 상담 안내 (기존 홈페이지와 동일한 버튼 구성) -->
     <div class="column-cta">
       <p>{{ semok }} 관련 상담이 필요하신가요?</p>
       <div class="column-cta-buttons">
