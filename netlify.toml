@@ -2,13 +2,6 @@
   command = "npm install && npm run build"
   publish = "_site"
 
-
-[build.environment]
-  NODE_VERSION = "20"
-[build]
-  command = "npm install && npm run build"
-  publish = "_site"
-
 [build.environment]
   NODE_VERSION = "20"
 
