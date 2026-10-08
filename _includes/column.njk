@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ title }} | 율광 세무회계 - 서초구 재산 전문 세무사</title>
+  <meta name="description" content="{{ description }}" />
+
+  <link rel="canonical" href="https://yool-gwang.com{{ page.url }}" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- 세목별 자동 분기: 이 글의 카테고리에 맞는 세목명을 변수로 지정 -->
+  {% if category == "capital-gains-tax" %}
+    {% set semok = "양도소득세" %}{% set semokUrl = "/capital-gains-tax.html" %}
+  {% elif category == "inheritance-tax" %}
+    {% set semok = "상속세" %}{% set semokUrl = "/inheritance-tax.html" %}
+  {% elif category == "gift-tax" %}
+    {% set semok = "증여세" %}{% set semokUrl = "/gift-tax.html" %}
+  {% elif category == "business-tax" %}
+    {% set semok = "사업자 세무" %}{% set semokUrl = "/book-keeping.html" %}
+  {% else %}
+    {% set semok = "세무" %}{% set semokUrl = "/" %}
+  {% endif %}
+
+  <!-- Article 스키마 (이 글의 세목 하나만 깨끗하게 들어감) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ title }}",
+    "description": "{{ description }}",
+    "about": "{{ semok }}",
+    "datePublished": "{{ date }}",
+    "author": {
+      "@type": "Person",
+      "name": "박준우 세무사"
+    },
+    "publisher": {
+      "@type": "Accountant",
+      "name": "율광 세무회계",
+      "address": "서울특별시 서초구 방배로27길 9, 2층 202호",
+      "telephone": "+82-2-2088-5906"
+    },
+    "mainEntityOfPage": "https://yool-gwang.com{{ page.url }}"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- 상단 네비게이션: 홈으로 돌아가기 -->
+  <header class="column-header">
+    <a href="/" class="column-logo">율광 세무회계</a>
+    <nav class="column-nav">
+      <a href="/">홈</a>
+      <a href="/tax-column/">세무 칼럼</a>
+      <a href="{{ semokUrl }}">{{ semok }} 안내</a>
+    </nav>
+  </header>
+
+  <main class="column-main">
+    <!-- 세목 표시 (이 글이 어느 세목인지 사람 눈에도 보임) -->
+    <p class="column-category">{{ semok }}{% if subcategory %} · {{ subcategory }}{% endif %}</p>
+
+    <h1 class="column-title">{{ title }}</h1>
+        <p class="column-date">{{ date | krDate }}</p>
+
+
+    <!-- 본문 (admin에서 쓴 Markdown이 여기로 변환되어 들어감) -->
+    <article class="column-body">
+      {{ content | safe }}
+    </article>
+
+      <!-- 하단 상담 안내 (기존 홈페이지와 동일한 버튼 구성) -->
+    <div class="column-cta">
+      <p>{{ semok }} 관련 상담이 필요하신가요?</p>
+      <div class="column-cta-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeD10N-yh3TcPQUV8oW6neJ4tMDyE8oBrq7dmqhmmKeT1N7Ww/viewform" target="_blank" rel="noopener" class="btn">상담 예약 신청하기</a>
+        <a href="tel:02-2088-5906" class="btn btn-outline-dark">02-2088-5906</a>
+        <a href="http://pf.kakao.com/_blMan/chat" target="_blank" rel="noopener" class="btn-kakao">카카오톡 상담</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="column-footer">
+    <p>율광 세무회계 · 서울 서초구 방배로27길 9, 2층 202호 · 02-2088-5906</p>
+    <p>&copy; 2026 율광 세무회계</p>
+  </footer>
+</body>
+</html>
