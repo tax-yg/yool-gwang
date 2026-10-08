@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/column"
+public_folder: "/images/column"
+
+collections:
+  - name: "column"
+    label: "세무 칼럼"
+    folder: "_posts/column"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - label: "1차 카테고리"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "양도소득세", value: "capital-gains-tax" }
+          - { label: "상속세", value: "inheritance-tax" }
+          - { label: "증여세", value: "gift-tax" }
+          - { label: "사업자 세무", value: "business-tax" }
+      - { label: "2차 카테고리(세부 주제)", name: "subcategory", widget: "string", required: false }
+      - { label: "요약(meta description)", name: "description", widget: "text" }
+      - { label: "발행일", name: "date", widget: "datetime" }
+      - { label: "본문", name: "body", widget: "markdown" }
