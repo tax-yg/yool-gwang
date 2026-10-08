@@ -1,0 +1,276 @@
+/* ==========================================================================
+   율광 세무회계 공통 스타일시트 (style.css)
+   - index.html 및 모든 상세 페이지가 공통으로 참조
+   - 색상/폰트/버튼/헤더/푸터 등 공통 UI를 이 파일 한 곳에서 관리
+   ========================================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Noto Sans KR", "Malgun Gothic", "맑은 고딕", sans-serif;
+  color: #2b2b2b;
+  line-height: 1.7;
+  background: #ffffff;
+}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* 색상 톤: 신뢰감 있는 남색 + 밝은 포인트 */
+:root {
+  --main: #1f4e79;
+  --point: #2e8bc0;
+  --light: #eaf3fa;
+  --accent: #f4a259;
+}
+
+/* 헤더 */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: #fff; border-bottom: 1px solid #e5e5e5;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-area span { font-size: 22px; font-weight: bold; color: var(--main); letter-spacing: 1px; }
+nav a { margin-left: 24px; font-weight: 500; color: #444; }
+nav a:hover { color: var(--point); }
+.nav-links { display: flex; }
+
+/* 히어로 (영상 배경) */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  padding: 90px 20px;
+}
+.hero-video {
+  position: absolute;
+  top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(20, 20, 20, 0.55);
+  z-index: -1;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { font-size: 38px; line-height: 1.4; margin-bottom: 18px; }
+.hero p { font-size: 19px; margin-bottom: 32px; opacity: 0.95; }
+.hero .highlight { color: var(--accent); }
+
+/* 버튼 (공통) */
+.btn {
+  display: inline-block; background: var(--accent); color: #fff;
+  padding: 15px 36px; border-radius: 40px; font-size: 18px; font-weight: bold;
+  transition: 0.2s; margin-left: 12px;
+}
+.btn:hover { background: #e8913f; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; border: 2px solid #fff; margin-left: 12px;
+}
+.btn-outline:hover { background: #fff; color: var(--main); }
+
+/* 카카오톡 상담 버튼 (카카오 공식 색상) */
+.btn-kakao {
+  background: #FEE500; color: #3c1e1e;
+  padding: 14px 28px; border-radius: 30px;
+  font-weight: 700; font-size: 1.05rem; margin-left: 12px;
+}
+.btn-kakao:hover { background: #f2d900; transform: translateY(-2px); }
+
+/* 신뢰 지표 */
+.stats {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
+  background: var(--light); padding: 45px 20px; text-align: center;
+}
+.stat-item .num { font-size: 40px; font-weight: bold; color: var(--main); }
+.stat-item .label { font-size: 16px; color: #555; margin-top: 6px; }
+
+/* 공통 섹션 */
+section.block { padding: 70px 0; }
+.section-title { text-align: center; margin-bottom: 45px; }
+.section-title h2 { font-size: 30px; color: var(--main); margin-bottom: 12px; }
+.section-title p { color: #666; font-size: 16px; }
+
+/* 전문분야 카드 */
+.services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.card {
+  border: 1px solid #e5e5e5; border-radius: 14px; padding: 32px 26px;
+  transition: 0.2s; background: #fff;
+}
+.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-4px); border-color: var(--point); }
+.card h3 { font-size: 20px; color: var(--main); margin-bottom: 12px; }
+.card p { color: #555; font-size: 15px; }
+.card .more { display: inline-block; margin-top: 14px; color: var(--accent); font-weight: 700; font-size: .92rem; }
+
+/* 대표 소개 */
+.about { background: var(--light); }
+.about-inner { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.about-photo { flex: 1; min-width: 280px; text-align: center; }
+.about-photo img { width: 100%; max-width: 340px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.about-text { flex: 1.4; min-width: 300px; }
+.about-text h2 { font-size: 28px; color: var(--main); margin-bottom: 18px; }
+.about-text .name { font-size: 20px; font-weight: bold; margin-bottom: 20px; }
+.about-text .name small { font-size: 15px; color: #777; font-weight: normal; }
+.about-text ul { list-style: none; }
+.about-text li { padding: 7px 0 7px 26px; position: relative; color: #444; }
+.about-text li::before { content: "✔"; position: absolute; left: 0; color: var(--point); }
+
+/* 사무실 소개 */
+.office-inner { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.office-map {
+  flex: 1.2; min-width: 300px; max-width: 100%;
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.office-info { flex: 1; min-width: 280px; }
+.office-info p { margin-bottom: 12px; color: #444; }
+.office-info .label { font-weight: bold; color: var(--main); }
+
+/* CTA */
+.cta {
+  background: var(--main); color: #fff; text-align: center; padding: 70px 20px;
+}
+.cta h2 { font-size: 30px; margin-bottom: 16px; }
+.cta p { font-size: 17px; margin-bottom: 30px; opacity: 0.92; }
+
+/* 푸터 */
+footer { background: #1a1a1a; color: #bbb; padding: 40px 20px; font-size: 14px; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+footer .name { color: #fff; font-size: 17px; font-weight: bold; margin-bottom: 10px; }
+footer p { margin-bottom: 5px; }
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero h1 { font-size: 27px; }
+  .hero p { font-size: 16px; }
+  .btn-outline { margin-left: 0; margin-top: 12px; }
+  .services { grid-template-columns: 1fr; }
+  .stats { gap: 28px; }
+  .stat-item .num { font-size: 32px; }
+}
+
+/* ==========================================================================
+   상세 페이지 공통 스타일 (양도·상속·증여 등 모든 서브 페이지 공용)
+   - style.css 맨 아래에 추가
+   ========================================================================== */
+
+/* 서브 페이지 헤더의 상담 링크 */
+.header-cta { font-weight: 700; color: var(--point); }
+.header-cta:hover { color: var(--main); }
+
+/* 페이지 상단 제목 띠 (서브 페이지용 간결한 히어로) */
+.page-hero {
+  background: linear-gradient(135deg, #eaf3fa, #ffffff);
+  border-bottom: 1px solid #e5edf4;
+  padding: 60px 20px;
+  text-align: center;
+}
+.page-hero h1 { font-size: 34px; color: var(--main); font-weight: 800; margin-bottom: 14px; }
+.page-hero p { font-size: 17px; color: #61707d; }
+
+/* 서브 페이지 본문 공통 */
+.detail { max-width: 860px; margin: 0 auto; padding: 60px 20px; }
+.detail h2 {
+  font-size: 24px; color: var(--main); font-weight: 700;
+  margin: 40px 0 18px; padding-left: 14px;
+  border-left: 5px solid var(--accent);
+}
+.detail h2:first-child { margin-top: 0; }
+.detail p { color: #3a3a3a; margin-bottom: 16px; }
+
+/* 이런 분께 추천합니다 (체크리스트) */
+.recommend-list { list-style: none; margin: 8px 0 8px; }
+.recommend-list li {
+  position: relative; padding: 9px 0 9px 30px; color: #444;
+  border-bottom: 1px dashed #e5edf4;
+}
+.recommend-list li::before {
+  content: "✔"; position: absolute; left: 0; top: 9px;
+  color: var(--point); font-weight: 700;
+}
+
+/* 실제 사례 (상황 → 해법 → 결과 반복 구조) */
+.case-item {
+  border: 1px solid #e5edf4; border-radius: 14px;
+  padding: 26px 24px; margin-bottom: 18px; background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.case-item h3 { font-size: 18px; color: var(--main); margin-bottom: 14px; }
+.case-row { margin-bottom: 10px; }
+.case-row:last-child { margin-bottom: 0; }
+.case-label {
+  display: inline-block; min-width: 84px;
+  font-weight: 700; color: var(--point);
+}
+.case-note { font-size: 13px; color: #8a97a3; margin-top: 14px; }
+
+/* FAQ */
+.faq { margin-top: 8px; }
+.faq-item {
+  border: 1px solid #e5edf4; border-radius: 12px;
+  padding: 22px 24px; margin-bottom: 14px; background: #fff;
+}
+.faq-item h3 { color: var(--point); font-size: 17px; margin-bottom: 10px; }
+.faq-item p { color: #61707d; margin: 0; }
+
+/* 서브 페이지 반응형 */
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: 26px; }
+  .detail { padding: 44px 20px; }
+  .detail h2 { font-size: 21px; }
+  .case-label { display: block; min-width: auto; margin-bottom: 2px; }
+}
+
+
+/* 본문 강조 키워드 (굵게 + 포인트 색) */
+.keyword { font-weight: 700; color: var(--point); }
+
+/* 본문 강조 키워드 (굵게 + 오렌지 포인트 색) */
+.keyword { font-weight: 700; color: var(--accent); }
+
+/* 본문 강조 키워드 (굵게 + 주황색) */
+.keyword { font-weight: 700; color: #f2740d; }   /* 선명한 주황 */
+
+/* 실제 사례 (상황 → 해법 → 결과 반복 구조) */
+.case-item {
+  border: 1px solid #e5edf4; border-radius: 14px;
+  padding: 26px 24px; margin-bottom: 18px; background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.case-item h3 { font-size: 18px; color: var(--main); margin-bottom: 16px; }
+
+/* 라벨 + 내용을 가로로 정렬, 내용이 길어 줄바꿈돼도 들여쓰기 유지 */
+.case-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+.case-row:last-child { margin-bottom: 0; }
+.case-label {
+  flex: 0 0 84px;      /* 라벨 폭 고정 */
+  font-weight: 700; color: var(--point);
+  white-space: nowrap;
+}
+.case-note { font-size: 13px; color: #8a97a3; margin-top: 14px; }
+
+@media (max-width: 768px) {
+  .case-row { flex-direction: column; gap: 2px; }
+  .case-label { flex: none; }
+}
+
+/* 두 글자 라벨("결과")을 다른 라벨 폭에 맞춰 양끝 정렬 */
+.case-label.spread {
+  text-align: justify;
+  text-align-last: justify;
+}
