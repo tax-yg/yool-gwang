@@ -17,25 +17,60 @@
 <!-- ★ 공통 스타일시트 (외부 분리) -->
 <link rel="stylesheet" href="style.css">
 
-<!-- 스키마: 세무사 사무소 정보 (AI·검색엔진용) -->
+<!-- 스키마: 고도화된 세무사 및 사무소 지식 그래프 (AI·검색엔진용) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Accountant",
-  "name": "율광 세무회계",
-  "image": "https://yool-gwang.com/images/city.jpg",
-  "url": "https://yool-gwang.com",
-  "telephone": "+82-2-2088-5906",
-  "email": "tax.yool-gwang@yool-gwang.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "방배로 27길 9, 2층 202호",
-    "addressLocality": "서초구",
-    "addressRegion": "서울특별시",
-    "addressCountry": "KR"
-  },
-  "areaServed": "서울특별시 서초구",
-  "knowsAbout": ["양도소득세", "상속세", "증여세", "재산컨설팅", "자금조달계획서", "개인사업자 기장", "법인사업자 기장"]
+  "@graph": [
+    {
+      "@type": "AccountingService",
+      "@id": "https://yool-gwang.com/#organization",
+      "name": "율광 세무회계",
+      "legalName": "율광세무회계",
+      "url": "https://yool-gwang.com",
+      "logo": "https://yool-gwang.com/images/daepyo.jpg",
+      "image": "https://yool-gwang.com/images/city.jpg",
+      "telephone": "+82-2-2088-5906",
+      "faxNumber": "+82-2-2088-5907",
+      "email": "tax.yool-gwang@yool-gwang.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "방배로 27길 9, 2층 202호",
+        "addressLocality": "서초구",
+        "addressRegion": "서울특별시",
+        "postalCode": "06572",
+        "addressCountry": "KR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.4897280,
+        "longitude": 126.9916170
+      },
+      "sameAs": [
+        "https://blog.naver.com/gksksla110",
+        "http://pf.kakao.com/_blMan"
+      ],
+      "founder": {
+        "@id": "https://yool-gwang.com/#person"
+      },
+      "knowsAbout": [
+        "양도소득세", "상속세", "증여세", "재산컨설팅", 
+        "자금조달계획서", "개인사업자 기장", "법인사업자 기장", "조세불복", "경정청구"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://yool-gwang.com/#person",
+      "name": "박준우",
+      "jobTitle": "대표 세무사",
+      "worksFor": {
+        "@id": "https://yool-gwang.com/#organization"
+      },
+      "image": "https://yool-gwang.com/images/daepyo.jpg",
+      "description": "양도·상속·증여 및 재산세제 특화 전문 세무사"
+    }
+  ]
 }
 </script>
 </head>
